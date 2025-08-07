@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { TbXboxXFilled } from "react-icons/tb";
 
-export default function SideDrawer() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function SideDrawer({isOpen,setIsOpen}) {
+  // const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <div className="md:hidden p-4">
-        <button onClick={() => setIsOpen(true)}>
+        <button  onClick={() => setIsOpen(true)}>
           <GiHamburgerMenu className="size-6"/>
         </button>
       </div>
@@ -18,7 +18,7 @@ export default function SideDrawer() {
         <>
           {/* Overlay */}
           <div
-             className="fixed inset-0  bg-opa bg-auto z-40"
+             className="fixed inset-0 bg-auto z-40"
             onClick={() => setIsOpen(false)}
           ></div>
 

@@ -1,18 +1,14 @@
-import React from 'react'
 import { useState } from 'react';
 import { IoIosContact } from "react-icons/io";
-import SideDrawer from './SideDrawer'
 
-const TopNav = ({title}) => {
+const TopNav = ({title, isOpen}) => {
     const [open, setOpen] = useState(false);
 
   return (
-    <div className="shadow-xl bg-white ">
+    <div className={`shadow-xl bg-white ${isOpen ? 'bg-gray-600':'bg-white'} `}>
       <div className="max-w-[960px] container mx-auto flex items-center justify-between px-4 py-3">
-         <SideDrawer className='hidden lg:block'/>
 
         <h1 className="text-2xl font-bold">{title}</h1>
-
 
         <div className="relative">
           <button

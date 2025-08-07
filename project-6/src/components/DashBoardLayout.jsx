@@ -1,23 +1,26 @@
-import React, { Children } from 'react'
+import React, { useState,Children } from 'react'
 import Sidenav from '../components/Sidenav'
 import TopNav from '../components/TopNav'
-
+import SideDrawer from './SideDrawer'
 
 const DashBoardLayout = ({title,children}) => {
-  return (
-    <div className='flex h-screen'>
+   const [isOpen,setIsOpen]= useState(false);
 
-      <div className='w-[256px] hidden md:block bg-gray-200'>
+  return (
+    <div className='flex h-screen relative overflow-hidden'>
+
+      <div className='w-[256px] hidden md:block bg-white'>
         <Sidenav/>
       </div>
       
-      <div className='flex-1 bg-white'>
-         <TopNav title={title}/>
-         <div className='max-w-[1100px] px-4 '>{children}</div>
+      <SideDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      <div className={`flex-1 bg-gray-200 transition-all duration-300 ease-in-out ${isOpen ? 'ml-64': ''} `}>
+         <TopNav title={title} isOpen={isOpen} setIsOpen={setIsOpen} />
+         <div className='max-w-[950px] lg:ml-[150px] px-4 '>{children}</div>
       </div>
       
     </div>
   )
 }
-
 export default DashBoardLayout
