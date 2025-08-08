@@ -4,11 +4,12 @@ import { RiBtcFill } from "react-icons/ri";
 import { FaRupeeSign } from "react-icons/fa";
 import { LuArrowDownToLine } from "react-icons/lu";
 import { IoArrowUpSharp } from "react-icons/io5";
+import { SiBitcoinsv } from "react-icons/si";
 
 const Portfolio = () => {
   return (
     <>
-    <div className="max-w-[1100px] p-6 my-8 mx-2 bg-white text-gray-600 rounded-lg shadow-md">
+    <div className="max-w-[1100px] p-6 my-8 mb-2 mx-2 bg-white text-gray-600 rounded-lg shadow-md">
       
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         
@@ -25,11 +26,11 @@ const Portfolio = () => {
           <div className="flex items-center gap-4 text-black font-medium">
             <div className="flex items-center gap-1">
               <p className="text-black text-xl font-bold mt-1">22.39401000</p>
-              <RiBtcFill />
+              <SiBitcoinsv className='mt-1' />
             </div>
             <div className="flex items-center gap-1">
               <p className="text-black text-xl font-bold mt-1">1,300.00</p>
-              <FaRupeeSign />
+              <FaRupeeSign className='mt-1'/>
             </div>
           </div>
         </div>

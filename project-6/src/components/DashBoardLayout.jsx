@@ -15,7 +15,7 @@ const DashBoardLayout = ({title,children}) => {
       
       <SideDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      <div className={`flex-1 bg-gray-200 transition-all duration-300 ease-in-out ${isOpen ? 'ml-64': ''} `}>
+      <div className={`flex-1 bg-gray-200 overflow-y-auto transition-all duration-300 ease-in-out ${isOpen ? 'ml-64': ''} `}>
          <TopNav title={title} isOpen={isOpen} setIsOpen={setIsOpen} />
          <div className='max-w-[950px] lg:ml-[150px] px-4 '>{children}</div>
       </div>
