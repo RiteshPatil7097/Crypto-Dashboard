@@ -1,8 +1,11 @@
 import React from 'react'
+import DashBoardLayout from '../../components/DashBoardLayout'
 
 const Support = () => {
   return (
-    <div>Support</div>
+     <DashBoardLayout title="Support">
+         <div>Support</div>
+     </DashBoardLayout>
   )
 }
 
