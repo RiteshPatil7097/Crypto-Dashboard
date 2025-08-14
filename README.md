@@ -52,3 +52,4 @@ Crypto-Dashboard/
 ├── vite.config.js
 └── README.md
 
+<img width="1876" height="917" alt="Image" src="https://github.com/RiteshPatil7097/Crypto-Dashboard/blob/main/project-6/src/assets/Crypto-Dashboard.png" />
