@@ -69,7 +69,7 @@ const TransactionTable = ({filterType="All",searchQuery=""}) => {
             status:"Completed"
         },
     ]
-
+        //filter
     const filteredByType= tableData.filter((row) => {
         const typeName = row.type?.name || row.type;
         if (!typeName) return false;
@@ -85,6 +85,7 @@ const TransactionTable = ({filterType="All",searchQuery=""}) => {
         }
     });
 
+      //search
     const filteredData = filteredByType.filter((row) => {
         
         const query = searchQuery.toLowerCase();

@@ -23,6 +23,7 @@ export default function SideDrawer({isOpen,setIsOpen}) {
       text:"Support",
       link:"/Support"
     }]
+    
 
   return (
     <>
