@@ -1,9 +1,28 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { TbXboxXFilled } from "react-icons/tb";
+import { RxDashboard } from "react-icons/rx";
+import { RiArrowUpDownFill } from "react-icons/ri";
+import { MdSupportAgent } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 export default function SideDrawer({isOpen,setIsOpen}) {
-  // const [isOpen, setIsOpen] = useState(false);
+    const navLinks=[
+      {
+      icon:RxDashboard,
+      text:"Dashboard",
+      link:"/"
+     },
+     {
+      icon:RiArrowUpDownFill,
+      text:"Transaction",
+      link:"/Transaction"
+     },
+     {
+      icon:MdSupportAgent,
+      text:"Support",
+      link:"/Support"
+    }]
 
   return (
     <>
@@ -26,9 +45,24 @@ export default function SideDrawer({isOpen,setIsOpen}) {
           <div className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform translate-x-0">
             <div className="p-4 border-b text-lg font-semibold">Menu</div>
             <ul className="p-4 space-y-3">
-              <li className="hover:text-purple-600 cursor-pointer">Dashboard</li>
-              <li className="hover:text-purple-600 cursor-pointer">Transactions</li>
-              <li className="hover:text-purple-600 cursor-pointer">Support</li>
+              {navLinks.map((nav)=>(
+                <Link to={nav.link} key={nav.text}>
+                   <li className="hover:text-purple-600 cursor-pointer flex">
+                        {
+                           nav.text==="Dashboard" 
+                          ?
+                           <><RxDashboard className="mr-3 mt-1"/> {nav.text}</>
+                          : 
+                           nav.text==="Transaction"
+                          ?
+                            <><RiArrowUpDownFill className="mr-3 mt-1"/> {nav.text}</> 
+                          : <><MdSupportAgent className="mr-3 mt-1"/> {nav.text}</>
+                        }
+                  </li>
+                 </Link>
+              ))}
+              
+
             </ul>
 
             {/* Close button */}

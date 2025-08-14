@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import TransactionTable from "./TransactionTable";
+import { IoSearch } from "react-icons/io5";
 
 export default function Tabs() {
   const [activeTab, setActiveTab] = useState("All");
-
+  const [searchQuery, setSearchQuery] = useState("");
   const tabs = [
-    { id: "All",     label: "All",     content: "one!",   count: 349 },
-    { id: "Deposit", label: "Deposit", content: "two!",   count: 114 },
-    { id: "WithDraw",label: "WithDraw",content: "three!", count: 55 },
-    { id: "Trade",   label: "Trade",   content: "three!", count: 19 },
+    { id: "All",     label: "All",     content: <TransactionTable filterType="All"      searchQuery={searchQuery}/>,   count: 349 },
+    { id: "Deposit", label: "Deposit", content:<TransactionTable filterType="Deposit"   searchQuery={searchQuery}/>,   count: 114 },
+    { id: "WithDraw",label: "WithDraw",content: <TransactionTable filterType="Withdraw" searchQuery={searchQuery}/>,   count: 55 },
+    { id: "Trade",   label: "Trade",   content: <TransactionTable filterType="Trade"    searchQuery={searchQuery}/>,   count: 19 },
   ];
 
   return (
-    <div className="max-w-[1100px] p-6 my-8 mb-2 mx-2 bg-white text-gray-600 rounded-lg shadow-md">
-      <div className="flex flex-col flex-wrap lg:overflow-hidden md:overflow-auto items-center w-1/2 mt-10">
+    <div className="max-w-[1100px] p-6   mx-2 bg-white text-gray-600 rounded-lg shadow-md">
+       <div className="flex flex-row justify-between flex-wrap overflow-x-auto items-start w-full ">
 
-        <div className="flex border-b border-gray-300 gap-1">
+        <div className="flex  border-gray-300 gap-1">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -31,11 +33,22 @@ export default function Tabs() {
           ))}
         </div>
 
-        {/* ✅ Changed w-1/2 to w-full for consistent alignment */}
-        {/* <div className="p-4 w-full text-center text-gray-700 border border-gray-300 border-t-0">
-          {tabs.find((tab) => tab.id === activeTab)?.content}
-        </div> */}
-      </div>
+        <div>
+          <div className="flex gap-1 p-1 rounded-md border-1">
+            <IoSearch className="size-6 px-1"/>
+            <div className="hidden md:block">
+              <input type="text" placeholder="Search..."
+                     value={searchQuery}
+                     onChange={(e) => setSearchQuery(e.target.value)} />
+            </div>
+            
+          </div>
+        </div>
+       </div>
+
+        <div className="p-4 w-full text-black overflow-auto border-gray-300 border-t-0">
+            {tabs.find((tab) => tab.id === activeTab)?.content} 
+        </div>
     </div>
   );
 }
